@@ -1,0 +1,20 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "xmas-theme-toggle",
+      "path": "./src\\theme-toggle\\theme-toggle.ts",
+      "properties": [
+        {
+          "name": "styles",
+          "type": "CSSStyleSheet",
+          "default": "\"CSS\""
+        },
+        {
+          "name": "button",
+          "type": "HTMLInputElement"
+        }
+      ]
+    }
+  ]
+}
