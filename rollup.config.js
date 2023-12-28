@@ -27,7 +27,7 @@ export default [
         minimize: true,
       }),
       postcssLit(),
-      typescript({ compilerOptions: { declaration: false, declarationMap: false } }),
+      typescript(),
       nodeResolve(),
     ],
   },

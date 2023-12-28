@@ -9,17 +9,9 @@ export class ThemeToggle extends LitElement {
 	@query('#switch')
 	button!: HTMLInputElement;
 
-	@query('#style1Button')
-	lightButton!: HTMLButtonElement;
-
-	@query('#style2Button')
-	darkButton!: HTMLButtonElement;
-
 	render(): TemplateResult {
 		return html`
 			<input type="checkbox" id="switch" /><label for="switch">Toggle</label>
-			<button id="style1Button">Light</button>
-			<button id="style2Button">Dark</button>
 		`;
 	}
 
@@ -74,14 +66,13 @@ export class ThemeToggle extends LitElement {
 	};
 	*/
 
-	private onLightClick = (_e: MouseEvent): void => {
-		console.log('Light click');
-		this.stylesheet?.setAttribute('href', '../themes/light-theme.css');
-	};
-
-	private onDarkClick = (_e: MouseEvent): void => {
-		console.log('Dark click');
-		this.stylesheet?.setAttribute('href', '../themes/dark-theme.css');
+	private onClick = (_e: MouseEvent): void => {
+		const href = this.stylesheet?.getAttribute('href');
+		if (href === '../themes/light-theme.css') {
+			this.stylesheet?.setAttribute('href', '../themes/dark-theme.css');
+		} else {
+			this.stylesheet?.setAttribute('href', '../themes/light-theme.css');
+		}
 	};
 
 	private get stylesheet(): HTMLElement | null {
@@ -114,10 +105,13 @@ export class ThemeToggle extends LitElement {
 		this.addWindowListeners();
 		*/
 
-		this.lightButton.addEventListener('click', this.onLightClick);
-		this.darkButton.addEventListener('click', this.onDarkClick);
-
+		this.button.addEventListener('click', this.onClick);
 		this.addStylesheet();
+	}
+
+	disconnectedCallback(): void {
+		this.button.removeEventListener('click', this.onClick);
+		super.disconnectedCallback?.();
 	}
 }
 
