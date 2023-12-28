@@ -4,10 +4,19 @@
 	<head>
 		<link rel="stylesheet" href="dev.css" />
 		<link rel="stylesheet" href="./theme-toggle/theme-toggle.css" />
+		<link id="theme-stylesheet" rel="stylesheet" href="../themes/light-theme.css" />
 		<meta charset="utf-8" />
 		<script type="module" src="../dist/index.js"></script>
 		<!-- <script src="./theme-toggle/theme-toggle.js"></script> -->
 		<title>x-mas components</title>
+		<style>
+			.main {
+				background-color: var(--background-fantastical);
+				border: 2px solid var(--border-yellow);
+				height: 250px;
+				width: 250px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -49,6 +58,27 @@
 				</g>
 			</svg>
 		</button> -->
+		<div class="main">This is my main container.</div>
+		<button id="style1Button">Light</button>
+		<button id="style2Button">Dark</button>
 		<xmas-theme-toggle></xmas-theme-toggle>
+		<script defer>
+			function handleClick() {
+				const stylesheet = document.getElementById('theme-stylesheet');
+				const href = stylesheet.getAttribute('href');
+
+				if (href === '../themes/light-theme.css') {
+					stylesheet.setAttribute('href', '../themes/dark-theme.css');
+				} else {
+					stylesheet.setAttribute('href', '../themes/light-theme.css');
+				}
+			}
+
+			const style1Button = document.getElementById('style1Button');
+			const style2Button = document.getElementById('style2Button');
+
+			style1Button.addEventListener('click', handleClick);
+			style2Button.addEventListener('click', handleClick);
+		</script>
 	</body>
 </html>

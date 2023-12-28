@@ -9,12 +9,21 @@ export class ThemeToggle extends LitElement {
 	@query('#switch')
 	button!: HTMLInputElement;
 
+	@query('#style1Button')
+	lightButton!: HTMLButtonElement;
+
+	@query('#style2Button')
+	darkButton!: HTMLButtonElement;
+
 	render(): TemplateResult {
 		return html`
 			<input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+			<button id="style1Button">Light</button>
+			<button id="style2Button">Dark</button>
 		`;
 	}
 
+	/*
 	private storageKey = 'theme-preference';
 	private theme = '';
 
@@ -59,15 +68,43 @@ export class ThemeToggle extends LitElement {
 			});
 	}
 
-	private onClick = (e: MouseEvent): void => {
+	private onClick = (_e: MouseEvent): void => {
 		this.theme = this.theme === 'light' ? 'dark' : 'light';
 		this.setPreference();
 	};
+	*/
+
+	private onLightClick = (_e: MouseEvent): void => {
+		console.log('Light click');
+		this.stylesheet?.setAttribute('href', '../themes/light-theme.css');
+	};
+
+	private onDarkClick = (_e: MouseEvent): void => {
+		console.log('Dark click');
+		this.stylesheet?.setAttribute('href', '../themes/dark-theme.css');
+	};
+
+	private get stylesheet(): HTMLElement | null {
+		console.log('get stylesheet()');
+		return document.getElementById('theme-stylesheet');
+	}
+
+	private addStylesheet(): void {
+		const stylesheet = this.stylesheet;
+		if (!stylesheet) {
+			const newStylesheet = document.createElement('link');
+			newStylesheet.id = 'theme-stylesheet';
+			newStylesheet.rel = 'stylesheet';
+			newStylesheet.href = '../themes/light-theme.css';
+			document.head.appendChild(newStylesheet);
+		}
+	}
 
 	firstUpdated(changedProperties: PropertyValues): void {
 		super.firstUpdated?.(changedProperties);
 
 		console.log('this.button', this.button);
+		/*
 		this.theme = this.getColorPreference();
 
 		this.getColorPreference();
@@ -75,6 +112,12 @@ export class ThemeToggle extends LitElement {
 		this.reflectPreference();
 
 		this.addWindowListeners();
+		*/
+
+		this.lightButton.addEventListener('click', this.onLightClick);
+		this.darkButton.addEventListener('click', this.onDarkClick);
+
+		this.addStylesheet();
 	}
 }
 

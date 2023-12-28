@@ -1,0 +1,50 @@
+/**
+ * Do not edit directly
+ * Generated on Thu, 28 Dec 2023 09:46:25 GMT
+ */
+
+:root {
+  --christmas-small: 8;
+  --christmas-medium: 16;
+  --christmas-large: 24;
+  --fireplace-small: 4;
+  --fireplace-medium: 6;
+  --fireplace-big: 8;
+  --fireplace-biggest: 16;
+  --background-surface: #ffffff;
+  --background-snowflake: #c3bccf;
+  --background-tree: #97EB8B;
+  --background-santa: #FFBABA;
+  --background-bell: #FEE0AD;
+  --background-fantastical: #FF0000;
+  --background-wall: #e7e7e4;
+  --text-global: #000000;
+  --text-santa: #A70000;
+  --text-tree: #01271C;
+  --border-tree: #168038;
+  --border-santa: #FF5252;
+  --border-blue: #002bca;
+  --border-yellow: #f70;
+  --border-snowflake: #c3bccf;
+  --icon-santa: #FF0000;
+  --icon-tree: #034D2A;
+  --joy-small: 2;
+  --joy-medium: 4;
+  --joy-immense: 12;
+  --christmas-huge: 48;
+  --christmas-primary-font: Poppins;
+  --christmas-text-font-family: Poppins;
+  --christmas-text-font-weight: Regular;
+  --christmas-text-font-size: 12;
+  --christmas-text-line-height: auto;
+  --christmas-header-font-family: Poppins;
+  --christmas-header-font-weight: Medium;
+  --christmas-header-font-size: 20;
+  --christmas-microcopy-font-size: 8;
+  --christmas-microcopy-font-family: Poppins;
+  --christmas-microcopy-font-weight: Regular;
+  --green-christmas: [object Object];
+  --red-christmas: [object Object];
+  --christmas-ghifts: [object Object];
+  --christmas-emotions: [object Object];
+}
