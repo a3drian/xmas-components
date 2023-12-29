@@ -2,6 +2,38 @@
   "version": "experimental",
   "tags": [
     {
+      "name": "xmas-dialog",
+      "path": "./src\\dialog\\dialog.ts",
+      "attributes": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "styles",
+          "type": "CSSStyleSheet",
+          "default": "\"CSS\""
+        },
+        {
+          "name": "dialog",
+          "type": "HTMLDialogElement"
+        },
+        {
+          "name": "closeButton",
+          "type": "HTMLButtonElement"
+        },
+        {
+          "name": "open",
+          "attribute": "open",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "xmas-theme-toggle",
       "path": "./src\\theme-toggle\\theme-toggle.ts",
       "properties": [

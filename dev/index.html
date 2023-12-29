@@ -4,7 +4,11 @@
 	<head>
 		<link rel="stylesheet" href="dev.css" />
 		<link rel="stylesheet" href="./theme-toggle/theme-toggle.css" />
-		<link id="theme-stylesheet" rel="stylesheet" href="../themes/light-theme.css" />
+		<link
+			id="theme-stylesheet"
+			rel="stylesheet"
+			href="../themes/light-theme.css"
+		/>
 		<meta charset="utf-8" />
 		<script type="module" src="../dist/index.js"></script>
 		<!-- <script src="./theme-toggle/theme-toggle.js"></script> -->
@@ -62,6 +66,8 @@
 		<button id="style1Button">Light</button>
 		<button id="style2Button">Dark</button>
 		<xmas-theme-toggle></xmas-theme-toggle>
+		<xmas-dialog></xmas-dialog>
+		<button id="show-dialog">Show the dialog</button>
 		<script defer>
 			function handleClick() {
 				const stylesheet = document.getElementById('theme-stylesheet');
@@ -79,6 +85,15 @@
 
 			style1Button.addEventListener('click', handleClick);
 			style2Button.addEventListener('click', handleClick);
+
+			const showButton = document.querySelector('#show-dialog');
+			showButton.addEventListener('click', () => {
+				const dialog = document
+					.querySelector('xmas-dialog')
+					.shadowRoot.querySelector('dialog');
+				console.log('dialog', dialog);
+				dialog.showModal();
+			});
 		</script>
 	</body>
 </html>
